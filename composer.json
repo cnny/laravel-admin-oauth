@@ -1,0 +1,30 @@
+{
+    "name": "cann/laravel-admin-oauth",
+    "description": "Laravel-Admin 的 OAuth 扩展",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "陈问渔",
+            "email": "imcnny@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "encore/laravel-admin": ">=1.7",
+        "guzzlehttp/guzzle": ">=6.0",
+        "overtrue/wechat": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cann\\Admin\\OAuth\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Cann\\Admin\\OAuth\\ServiceProvider"
+            ]
+        }
+    }
+}
