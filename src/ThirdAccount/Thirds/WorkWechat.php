@@ -50,9 +50,7 @@ class WorkWechat extends ThirdAbstract
             'access_token' => $accessToken['access_token'],
         ];
 
-        // $session = self::getSession($params);
-
-        $session = ['UserId' => 'ChenWenYu'];
+        $session = self::getSession($params);
 
         return [
             'id'   => $session['UserId'],
