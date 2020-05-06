@@ -16,7 +16,9 @@ class AuthController extends BaseAuthController
             return redirect($this->redirectPath());
         }
 
-        $sources = \Arr::only(ThirdAccount::SOURCES, config('admin-oauth.enabled_thirds'));
+        $sources = \Arr::only(ThirdAccount::sources(), config('admin-oauth.enabled_thirds'));
+
+        $sources = \Arr::pluck($sources, 'sourceName', 'source');
 
         return view('oauth::login', compact('sources'));
     }
@@ -24,12 +26,12 @@ class AuthController extends BaseAuthController
     public function toAuthorize(Request $request)
     {
         $request->validate([
-            'source' => 'required|string|in:' . implode(',', array_keys(ThirdAccount::SOURCES)),
+            'source' => 'required|string|in:' . implode(',', config('admin-oauth.enabled_thirds') ?: []),
         ]);
 
         $thirdService = ThirdAccount::factory($request->source);
 
-        $thirdService->setRedirectUrl('http://101.230.235.210:8080/oauth/callback?source=' . $request->source);
+        $thirdService->setRedirectUrl(admin_url('/oauth/callback?source=' . $request->source));
 
         $authorizeUrl = $thirdService->getAuthorizeUrl($request->all());
 
@@ -40,7 +42,7 @@ class AuthController extends BaseAuthController
     public function oauthCallback(Request $request)
     {
         $posts = $request->validate([
-            'source' => 'required|string|in:' . implode(',', array_keys(ThirdAccount::SOURCES)),
+            'source' => 'required|string|in:' . implode(',', config('admin-oauth.enabled_thirds') ?: []),
         ]);
 
         // 获取第三方工厂实例
@@ -79,7 +81,7 @@ class AuthController extends BaseAuthController
 
         if ($request->isMethod('get')) {
             return view('oauth::bind-account', [
-                'sourceName' => ThirdAccount::SOURCES[$thirdUser['source']],
+                'sourceName' => ThirdAccount::sources()[$thirdUser['source']]['sourceName'],
             ]);
         }
 

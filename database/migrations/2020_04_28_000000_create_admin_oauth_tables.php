@@ -21,7 +21,7 @@ class CreateAdminOauthTables extends Migration
             $table->string('third_user_id', 191);
             $table->timestamps();
 
-            $table->unique('platform', 'user_id', 'third_user_id');
+            $table->unique(['platform', 'user_id', 'third_user_id']);
         });
     }
 

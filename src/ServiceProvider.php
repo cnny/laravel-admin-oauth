@@ -51,4 +51,13 @@ class ServiceProvider extends BaseServiceProvider
             $this->publishes([__DIR__ . '/../resources/assets' => public_path('vendor/laravel-admin-oauth')], 'laravel-admin-oauth');
         }
     }
+
+    public static function extend(string $class, string $source, string $sourceName = '')
+    {
+        $sourceName = $sourceName ?: $source;
+
+        config([
+            'admin-oauth.sources.' . $source =>  compact('source', 'sourceName', 'class'),
+        ]);
+    }
 }

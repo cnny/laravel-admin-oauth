@@ -35,13 +35,32 @@ class ThirdAccount
     {
         $source = ucfirst($source);
 
-        if (! $source || ! isset(self::SOURCES[$source])) {
+        $sources = self::sources();
+
+        if (! $source || ! isset($sources[$source])) {
             throw new \Exception('Invalid 3rdAccountSource');
         }
 
-        $className = __NAMESPACE__ . '\\Thirds\\' . str_replace('_', '\\', $source);
+        return new $sources[$source]['class']($source);
+    }
 
-        return new $className($source);
+    public static function sources()
+    {
+        $sources = [];
+
+        foreach (self::SOURCES as $source => $sourceName) {
+            $sources[$source] = [
+                'source'     => $source,
+                'sourceName' => $sourceName,
+                'class'      => __NAMESPACE__ . '\\Thirds\\' . str_replace('_', '\\', $source),
+            ];
+        }
+
+        $sources += (config('admin-oauth.sources') ?: []);
+
+        return \Arr::sort($sources, function ($value, $key) {
+            return array_search($key, config('admin-oauth.enabled_thirds') ?? []);
+        });
     }
 
     // 解绑绑定

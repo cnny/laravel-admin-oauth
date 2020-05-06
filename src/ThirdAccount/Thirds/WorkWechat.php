@@ -3,7 +3,6 @@
 namespace Cann\Admin\OAuth\ThirdAccount\Thirds;
 
 use EasyWeChat\Factory;
-use App\Business\UserBusiness;
 use Cann\Admin\OAuth\Helpers\ApiHelper;
 
 class WorkWechat extends ThirdAbstract
