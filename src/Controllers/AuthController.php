@@ -31,8 +31,6 @@ class AuthController extends BaseAuthController
 
         $thirdService = ThirdAccount::factory($request->source);
 
-        $thirdService->setRedirectUrl(admin_url('/oauth/callback?source=' . $request->source));
-
         $authorizeUrl = $thirdService->getAuthorizeUrl($request->all());
 
         return redirect($authorizeUrl);
