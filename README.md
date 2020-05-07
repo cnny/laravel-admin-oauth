@@ -2,8 +2,8 @@
 
 <p align="center">
   laravel-admin-oauth 是 <a href="https://laravel-admin.org/">laravel-admin</a> 的 OAuth2.0 登录扩展， 目前支持企业微信OAuth登录，支持扩展其他授权方
-  <img src="https://blog-1252314417.cos.ap-shanghai.myqcloud.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-05-07%20%E4%B8%8B%E5%8D%8812.16.42.png">
-  <img src="https://blog-1252314417.cos.ap-shanghai.myqcloud.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-05-07%20%E4%B8%8B%E5%8D%8812.16.51.png">
+  <img src="https://blog-1252314417.cos.ap-shanghai.myqcloud.com/1588825967295.jpg">
+  <img src="https://blog-1252314417.cos.ap-shanghai.myqcloud.com/1588826006635.jpg">
 </p>
 
 
