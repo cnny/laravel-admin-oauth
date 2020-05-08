@@ -24,6 +24,11 @@ composer require cann/laravel-admin-oauth
 php artisan vendor:publish --provider="Cann\Admin\OAuth\ServiceProvider"
 ```
 
+执行：
+```
+php artisan migrate
+```
+
 ### 配置
 
 path: `config/admin-oauth.php`
