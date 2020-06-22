@@ -1,7 +1,7 @@
 <p align="center">Laravel-Admin-OAuth</p>
 
 <p align="center">
-  laravel-admin-oauth 是 <a href="https://laravel-admin.org/">laravel-admin</a> 的 OAuth2.0 登录扩展， 目前支持企业微信OAuth登录，支持扩展其他授权方
+  laravel-admin-oauth 是 <a href="https://laravel-admin.org/">laravel-admin</a> 的 OAuth2.0 登录扩展， 目前支持 企业微信/钉钉 OAuth登录，支持扩展其他授权方
   <img src="https://blog-1252314417.cos.ap-shanghai.myqcloud.com/1588825967295.jpg">
   <img src="https://blog-1252314417.cos.ap-shanghai.myqcloud.com/1588826006635.jpg">
 </p>
