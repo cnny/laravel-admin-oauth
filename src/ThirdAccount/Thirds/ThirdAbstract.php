@@ -48,6 +48,24 @@ abstract class ThirdAbstract implements ThirdInterface
         return $this;
     }
 
+    public function generateState()
+    {
+        $state = \Str::random(16);
+
+        \Cache::put('LaravelAdminOAuthState:' . $this->source, $state, 86400);
+
+        return $state;
+    }
+
+    protected function validateState(string $state)
+    {
+        $rState = \Cache::get('LaravelAdminOAuthState:' . $this->source);
+
+        if ($state != $rState) {
+            throw new \Exception('Invalid State');
+        }
+    }
+
     public function decryptUserMobile(array $params)
     {
         return '';

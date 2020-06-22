@@ -13,6 +13,7 @@ return [
     // 启用的第三方登录
     'enabled_thirds' => [
         'WorkWechat',
+        'DingDing',
     ],
 
     // 第三方登录秘钥
@@ -21,6 +22,10 @@ return [
             'corp_id'  => env('WECHAT_WORK_CORP_ID', ''),
             'agent_id' => env('WECHAT_WORK_AGENT_ID', ''),
             'secret'   => env('WECHAT_WORK_AGENT_SECRET', ''),
-        ]
+        ],
+        'ding_ding' => [
+            'app_id'     => env('DINGDING_APP_ID', ''),
+            'app_secret' => env('DINGDING_APP_SECRET', ''),
+        ],
     ],
 ];

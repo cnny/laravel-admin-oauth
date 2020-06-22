@@ -15,6 +15,7 @@ class ThirdAccount
     // 所有第三方平台
     const PLATFORMS = [
         'WorkWechat',
+        'DingDing',
     ];
 
     /**
@@ -24,6 +25,7 @@ class ThirdAccount
      */
     const SOURCES = [
         'WorkWechat' => '企业微信',
+        'DingDing'   => '钉钉',
     ];
 
     /**

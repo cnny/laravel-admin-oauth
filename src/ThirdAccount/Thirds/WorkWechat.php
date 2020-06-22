@@ -29,7 +29,7 @@ class WorkWechat extends ThirdAbstract
             'appid'        => $this->config['corp_id'],
             'agentid'      => $this->config['agent_id'],
             'redirect_uri' => $this->redirectUrl,
-            'state'        => \Str::random(16),
+            'state'        => $this->generateState(),
         ]);
 
         return self::AUTHORIZE_URL . '?' . $paramsStr;
@@ -40,6 +40,8 @@ class WorkWechat extends ThirdAbstract
         \Validator::make($params, [
             'code' => 'required|string',
         ])->validate();
+
+        $this->validateState($params['state']);
 
         $workService = Factory::work($this->config);
 
